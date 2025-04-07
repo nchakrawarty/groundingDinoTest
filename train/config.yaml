@@ -1,0 +1,64 @@
+batch_size: 16
+num_epochs: 50
+learning_rate: 0.0001
+
+dataset:
+  train: "./assets/datasets/labels_my-project-name_2024-11-27-07-41-07.json"
+  val: "./assets/datasets/labels_my-project-name_2024-11-27-07-41-07.json"
+  images_dir: "./assets/datasets"
+
+model:
+  type: "GroundingDINO" # Model type
+  modelname: "groundingdino" # Model name
+  pretrained: "../weights/groundingdino_swint_ogc.pth" # Path to pretrained weights
+  hidden_dim: 256 # Hidden dimension size
+  position_embedding: "sine" # Position embedding type
+  pe_temperatureH: 1.0 # Horizontal positional encoding temperature
+  pe_temperatureW: 1.0 # Vertical positional encoding temperature
+  return_interm_indices: [3] # List of intermediate indices to return
+  backbone: "resnet50" # Backbone architecture (e.g., ResNet-50)
+  backbone_freeze_keywords: ["layer1", "layer2"] # List of layers to freeze during training
+  dropout: 0.5 # Dropout rate
+  num_classes: 80 # Number of output classes
+  learning_rate: 0.0001 # Learning rate
+  batch_size: 8 # Batch size during training
+  epochs: 50 # Number of training epochs
+  input_size: [800, 800] # Input image size (height, width)
+  optimizer: "Adam" # Optimizer to use (Adam or other)
+  dilation: 1 # Dilation rate
+  nheads: 8 # Number of attention heads in the transformer
+  num_queries: 100 # Number of queries for the transformer
+  dim_feedforward: 512 # Dimension of feedforward layers in the transformer
+  enc_layers: 6 # Number of layers in the encoder of the transformer
+  dec_layers: 6 # Number of layers in the decoder of the transformer
+  query_dim: 4 # Dimensionality of queries
+  pre_norm: false # Whether to apply normalization before or after the transformer
+  encoder_norm: null # Encoder normalization type (e.g., None or layernorm)
+  transformer_activation: "gelu" # Activation function for transformer layers
+  num_patterns: 1 # Number of patterns for the transformer
+  num_feature_levels: 1 # Number of feature levels in the model
+  num_levels: 4 # Number of levels in the model
+  n_levels: 4 # Number of levels (alternative naming)
+  num_points: 4 # Number of points in the model's queries
+  n_points: 4 # Number of points (alternative naming)
+  enc_n_points: 4 # Number of points in the encoder's query embeddings
+  dec_n_points: 4 # Number of points in the decoder's query embeddings
+  learnable_tgt_init: false # Whether to learn the initial target embedding
+  two_stage_type: "no" # Type of two-stage design (e.g., 'no' or 'yes')
+  embed_init_tgt: false # Whether to initialize the target embedding
+  use_text_enhancer: false # Whether to use a text enhancer in the model
+  use_fusion_layer: false # Whether to use a fusion layer in the model
+  use_checkpoint: false # Whether to use checkpointing for memory efficiency
+  use_transformer_ckpt: false # Whether to use transformer checkpointing
+  use_text_cross_attention: false # Whether to use text cross-attention
+  text_dropout: 0.1 # Dropout rate for text features
+  fusion_dropout: 0.1 # Dropout rate for fusion layers
+  fusion_droppath: 0.0 # Dropout path rate for fusion layers
+  scheduler: "CosineAnnealingLR" # Learning rate scheduler type
+  dn_labelbook_size: 10 # Size of the label book for dynamic instance attention
+  sub_sentence_present: false # Whether to use sub-sentence features (to be added for your use case)
+  two_stage_bbox_embed_share: false # Set this to false as needed
+  dec_pred_bbox_embed_share: false # Whether to share the predicted bounding box embedding across decoder layers
+
+output_dir: "./output"
+device: "cuda" # Use "cpu" if no GPU is available

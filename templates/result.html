@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detected Items</title>
+</head>
+<body>
+    <h1>Uploaded Image with Detected Items</h1>
+    <h3>Annotated Image:</h3>
+    <img src="{{ image_url }}" alt="Annotated Image" style="max-width: 100%;">
+
+    <h3>Item Counts:</h3>
+    <ul>
+        {% for item, count in item_counts.items() %}
+            <li>{{ item }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <br><br>
+    <a href="/">Upload another image</a>
+</body>
+</html>

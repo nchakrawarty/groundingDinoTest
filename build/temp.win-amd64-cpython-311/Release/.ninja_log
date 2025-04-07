@@ -1,0 +1,5 @@
+# ninja log v5
+52	5375	7538724850913221	I:/Grounding dino/GroundingDINO/build/temp.win-amd64-cpython-311/Release/Grounding dino/GroundingDINO/groundingdino/models/GroundingDINO/csrc/cuda_version.obj	290177b6ad216a78
+15	14007	7538724937191345	I:/Grounding dino/GroundingDINO/build/temp.win-amd64-cpython-311/Release/Grounding dino/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cpu.obj	4cc262aa503f0a24
+62	28882	7538725085974237	I:/Grounding dino/GroundingDINO/build/temp.win-amd64-cpython-311/Release/Grounding dino/GroundingDINO/groundingdino/models/GroundingDINO/csrc/vision.obj	c249bd2a90375eff
+39	55330	7538725347172976	I:/Grounding dino/GroundingDINO/build/temp.win-amd64-cpython-311/Release/Grounding dino/GroundingDINO/groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cuda.obj	ada5ecbe90c05dee
